@@ -1,0 +1,64 @@
+
+.heroes {
+        display: flex;
+        flex-wrap: wrap;
+}
+.hero {
+    width: 14rem;
+    height: 25rem;
+    background: 
+    url(https://static.playoverwatch.com/img/hero-portrait-detailed/hero-portrait-detailed-bg-c659e0b7f6.jpg) no-repeat;
+    background-size: cover;
+    position: relative;
+    cursor: pointer;
+
+    transition: all .2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    margin: 5px;
+    
+    &:hover {
+        transform: scale(1.1);
+        z-index: 500;
+        .hero__details {
+            background: white;
+            color: black;
+        }
+    }
+    
+    &__img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border: 2px solid white;
+        
+    }
+
+    &__details{
+        background: rgba(0, 0, 139, 0.762);
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        min-height: 5rem;
+        color: white;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .icon {
+            width: 1.3rem;
+            height: 1.3rem;
+            fill: currentColor;
+            position: absolute;
+            left: 15px;
+            top: 15px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: currentColor;
+        }
+    }
+
+
+    
+}
