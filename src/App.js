@@ -6,28 +6,40 @@ import "./app.scss";
 class App extends React.Component {
 
     state = {
-        heroes: heroesData
-    }
+        heroRole: ""
+    }   
 
+    buttonPressHandler = (role) => {
+           console.log(role);
+           this.setState({heroRole: role})
+     };
 
-
+    
     render() {
         return (
             <div>
-                <button>Rearange</button>
-              <div className="heroes">
-                {
-                heroesData.map((hero) => {
-                    return <Hero name={hero.name}
-                                img={require(`${hero.imgUrl}`)}
-                           />})
+                <button onClick={() => {this.buttonPressHandler('')}}>All Heroes</button>
+                <button onClick={() => {this.buttonPressHandler('tank')}}>Tank Heroes</button>
+                <button onClick={() => {this.buttonPressHandler('support')}}>Support Heroes</button>
+
+            <div className="heroes">
+                { 
+               heroesData.filter(hero => hero.role.includes(this.state.heroRole))
+               .map((hero) => {
+                return (
+                    <Hero
+                     key={hero.id}
+                     name={hero.name} 
+                     img={require(`${hero.imgUrl}`)} 
+                    />
+                );
+        })
                 }
-              </div>
             </div>
-         
+        </div>
+  
         )
     }
-  
 }
 
 export default App;

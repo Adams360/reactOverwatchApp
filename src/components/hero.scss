@@ -2,10 +2,11 @@
 .heroes {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
 }
 .hero {
     width: 14rem;
-    height: 25rem;
+    height: 20rem;
     background: 
     url(https://static.playoverwatch.com/img/hero-portrait-detailed/hero-portrait-detailed-bg-c659e0b7f6.jpg) no-repeat;
     background-size: cover;

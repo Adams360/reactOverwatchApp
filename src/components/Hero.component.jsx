@@ -5,7 +5,7 @@ const Hero = (props) => {
 
     return (
         <div className="hero">
-            <img className="hero__img" src={props.img} alt={props.name} />
+            <img onClick={props.click} className="hero__img" src={props.img} alt={props.name} />
             <div className="hero__details">
                 <h2>{props.name}</h2>
             </div>
