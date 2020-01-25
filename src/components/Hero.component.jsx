@@ -1,17 +1,33 @@
 import React from 'react';
 import "./hero.scss";
+import { ReactComponent as Tank } from '../svg/tank.svg';
+import { ReactComponent as Support } from '../svg/support.svg';
+import { ReactComponent as Dmg } from '../svg/dmg.svg';
 
-const Hero = (props) => {
+const findIcon = (role) => {
+    if (role === 'defense') {
+        return Dmg;
+    }
+
+    if (role === 'support') {
+        return Support;
+    }
+
+    return Tank;
+}
+
+const Hero = ({ role, img, name}) => {
+    const Icon = findIcon(role);
 
     return (
         <div className="hero">
-            <img onClick={props.click} className="hero__img" src={props.img} alt={props.name} />
+            <img src={img} className="hero__img" alt={name} />
             <div className="hero__details">
-                <h2>{props.name}</h2>
+                <Icon />
+                <h2>{name}</h2>
             </div>
         </div>
-    
     )
-};
+}
 
 export default Hero;

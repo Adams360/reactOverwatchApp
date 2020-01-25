@@ -29,6 +29,7 @@ class App extends React.Component {
                 return (
                     <Hero
                      key={hero.id}
+                     role={hero.role}
                      name={hero.name} 
                      img={require(`${hero.imgUrl}`)} 
                     />
