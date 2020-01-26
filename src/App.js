@@ -4,17 +4,29 @@ import Hero from './components/Hero.component';
 import "./app.scss";
 
 class App extends React.Component {
-
     state = {
         heroRole: ""
     }   
-
     buttonPressHandler = (role) => {
            console.log(role);
            this.setState({heroRole: role})
      };
+     
+     sortedHeroes() {
 
+        const sortedArray = [];
+
+        for (const hero of heroesData) {
     
+            if(hero.role === this.state.heroRole) {
+                sortedArray.unshift(hero)
+            } else {
+                sortedArray.push(hero)
+            }
+        }
+        return sortedArray;
+     }
+     
     render() {
         return (
             <div>
@@ -24,8 +36,8 @@ class App extends React.Component {
 
             <div className="heroes">
                 { 
-               heroesData.filter(hero => hero.role.includes(this.state.heroRole))
-               .map((hero) => {
+               
+               this.sortedHeroes().map((hero) => {
                 return (
                     <Hero
                      key={hero.id}
